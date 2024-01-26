@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Script list content in current dir without initial #- filenames
 
-files="$(ls)"
-for f in $files;
-do
-	echo "$f" | cut -d "-" -f2
+# Using for loop as required
+for f in *; do
+    # Check if file starts with "#", if not, print it
+    if [[ ! "$f" =~ ^# ]]; then
+        echo "$f"
+    fi
 done
